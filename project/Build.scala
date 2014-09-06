@@ -13,23 +13,20 @@ object Build extends sbt.Build{
   publishMavenStyle := false
 
 
-  val scalajsOutputDir = Def.settingKey[File]("directory for javascript files output by scalajs")
+  val scalajsResolver: URLRepository = Resolver.url("scala-js-releases",
+    url("http://dl.bintray.com/content/scala-js/scala-js-releases"))(
+      Resolver.ivyStylePatterns)
 
-  protected val bintrayPublishIvyStyle = settingKey[Boolean]("=== !publishMavenStyle") //workaround for sbt-bintray bug
 
-  lazy val threejs = project.in( file("./threejs") )
+  lazy val publishSettings = Seq(
+    repository in bintray := "denigma-releases",
 
-  lazy val codeMirror = project.in( file("./codemirror") )
+    bintrayOrganization in bintray := Some("denigma"),
 
-  lazy val interfaces = project.in( file(".") ) settings (
+    licenses += ("MPL-2.0", url("http://opensource.org/licenses/MPL-2.0")),
 
-    //updateBrowsers <<= updateBrowsers.triggeredBy(ScalaJSKeys.fastOptJS in Compile),
-
-    name := "interfaces"
-
-    //bootSnippet := "Main().main();"
-
-    ) dependsOn codeMirror dependsOn threejs
+    bintrayPublishIvyStyle := true
+  )
 
   /**
    * For parts of the project that we will not publish
@@ -39,6 +36,27 @@ object Build extends sbt.Build{
     publishLocal := (),
     publishArtifact := false
   )
+
+
+
+  val scalajsOutputDir = Def.settingKey[File]("directory for javascript files output by scalajs")
+
+  protected val bintrayPublishIvyStyle = settingKey[Boolean]("=== !publishMavenStyle") //workaround for sbt-bintray bug
+
+  lazy val threejs = project.in( file("./threejs") ) settings(publishSettings:_*)
+
+  lazy val codeMirror = project.in( file("./codemirror") ) settings(publishSettings:_*)
+
+  lazy val interfaces = project.in( file(".") ) settings(
+
+    //updateBrowsers <<= updateBrowsers.triggeredBy(ScalaJSKeys.fastOptJS in Compile),
+
+    name := "interfaces"
+
+    //bootSnippet := "Main().main();"
+
+    ) dependsOn codeMirror dependsOn threejs
+
 
 
   val sameSettings:Seq[Setting[_]] = bintraySettings ++Seq(
@@ -66,18 +84,4 @@ object Build extends sbt.Build{
 
 
 
-  val scalajsResolver: URLRepository = Resolver.url("scala-js-releases",
-    url("http://dl.bintray.com/content/scala-js/scala-js-releases"))(
-      Resolver.ivyStylePatterns)
-
-
-  lazy val publishSettings = Seq(
-    repository in bintray := "denigma-releases",
-
-    bintrayOrganization in bintray := Some("denigma"),
-
-    licenses += ("MPL-2.0", url("http://opensource.org/licenses/MPL-2.0")),
-
-    bintrayPublishIvyStyle := true
-  )
 }
