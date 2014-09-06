@@ -1,0 +1,31 @@
+<!doctype html>
+
+<title>CodeMirror: XML mode</title>
+<meta charset="utf-8"/>
+
+<link rel="stylesheet" href="codemirror.css">
+<script src="codemirror.js"></script>
+<script src="xml.js"></script>
+<style type="text/css">.CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}</style>
+<article>
+<h2>Codemirror editor</h2>
+<form><textarea id="code" name="code">
+&lt;html style="color: green"&gt;
+  &lt;!-- this is a comment --&gt;
+  &lt;head&gt;
+    &lt;title&gt;HTML Example&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    The indentation tries to be &lt;em&gt;somewhat &amp;quot;do what
+    I mean&amp;quot;&lt;/em&gt;... but might not match your style.
+  &lt;/body&gt;
+&lt;/html&gt;
+</textarea></form>
+    <script>
+      var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+        mode: "text/html",
+        lineNumbers: true
+      });
+</script>
+</html>
+
