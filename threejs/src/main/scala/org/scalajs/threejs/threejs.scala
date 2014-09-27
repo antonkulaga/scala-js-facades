@@ -3030,6 +3030,8 @@ class ArrowHelper  extends Object3D {
   var cone: Mesh = ???
   def setDirection(dir: Vector3): Unit = ???
   def setLength(length: Double): Unit = ???
+  def setLength(length: Double,headLength:Double): Unit = ???
+  def setLength(length: Double,headLength:Double, headWidth:Double): Unit = ???
   def setColor(hex: Double): Unit = ???
 }
 

@@ -18,7 +18,7 @@ At the moment following libs are available
 libraryDependencies += "org.scalajs" %%% "codemirror" % "4.5-0.1" //CodeMirror editor
 ```
 ```scala
-libraryDependencies += "org.scalajs" %%% "threejs" % "0.0.68-0.1" //THREE.js lib
+libraryDependencies += "org.scalajs" %%% "threejs" % "0.0.68-0.1.1" //THREE.js lib
 ```
 
 Getting Started
@@ -27,4 +27,4 @@ Getting Started
 * open /target/scala-2.11/classes/index.html in scala-js-interfaces project folder
 * look at examples
 
-NOTE: if you change anything (even resources files) you have to do sbt fastOptJS to see the changes
+NOTE: if you change anything (even resources files) you have to do sbt fastOptJS to see the changesublish
