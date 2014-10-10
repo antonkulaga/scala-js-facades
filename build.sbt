@@ -10,10 +10,10 @@ name := "interfaces"
 
 scalaVersion := "2.11.2"
 
-version := "0.1"
+version := "0.11"
 
 resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
 
 libraryDependencies ++= Seq(
-  "com.scalatags" %%% "scalatags" % "0.4.0"
+  "com.scalatags" %%% "scalatags" % "0.4.1"
 )

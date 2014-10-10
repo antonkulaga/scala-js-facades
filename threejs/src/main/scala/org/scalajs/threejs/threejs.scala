@@ -1854,7 +1854,7 @@ class Vector3  extends Vector {
   override def setComponent(index: Double, value: Double): Unit = ???
   override def getComponent(index: Double): Double = ???
   def copy(v: Vector3): Vector3 = ???
-  def add(a: Object): Vector3 = ???
+  def add(a: Vector3): Vector3 = ???
   def addScalar(s: Double): Vector3 = ???
   def addVectors(a: Vector3, b: Vector3): Vector3 = ???
   def sub(a: Vector3): Vector3 = ???

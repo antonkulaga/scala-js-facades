@@ -14,5 +14,5 @@ version := "0.0.68-0.1.1"
 
 libraryDependencies ++= Seq(
   "org.scala-lang.modules.scalajs" %%% "scalajs-dom" % "0.6",
-  "com.scalatags" %%% "scalatags" % "0.4.0"
+  "com.scalatags" %%% "scalatags" % "0.4.1"
 )

@@ -1,9 +1,11 @@
 package org.scalajs.threejs.extensions
 
+import org.scalajs.dom.{MouseEvent, Event}
 import org.scalajs.threejs._
+import org.scalajs.threejs.extensions.controls.{HoverControls, CameraControls}
 import org.scalajs.threejs.extras.{OrbitControls, HtmlRenderer}
 
-import scala.scalajs.js.Dynamic
+import scala.scalajs.js.{Array, Dynamic}
 
 
 trait Container3D extends SceneContainer
@@ -15,6 +17,7 @@ trait Container3D extends SceneContainer
   container.style.position = "relative"
 
   override type RendererType =  WebGLRenderer
+
 
   protected def initRenderer= {
     val params = Dynamic.literal(
@@ -47,14 +50,14 @@ trait Container3D extends SceneContainer
   }
 
 
-  val controls = new OrbitControls(camera,this.container)
-
-
+  //val controls = new OrbitControls(camera,this.container)
+  val controls:CameraControls = new HoverControls(camera,this.container)
 
 
   container.appendChild( renderer.domElement )
   container.appendChild( cssRenderer.domElement )
   //cssRenderer.domElement.appendChild( renderer.domElement )
+
 
 
   override def onEnterFrame() = {
