@@ -16,9 +16,6 @@ object ThreeJSExample extends Example
 {
   override def name: String = "threejs"
 
-
-
-
   lazy val demo = new ExampleScene(dom.document.body,1280,768)
 
 

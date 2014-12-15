@@ -1,7 +1,7 @@
-scala-js-interfaces
+scala-js-facades
 ===================
 
-scalajs interfaces for some popular javascript libs.
+scalajs facades for some popular javascript libs.
 Each javascript lib is a separate subproject and is published as separate artifact.
 
 USAGE
@@ -24,7 +24,8 @@ libraryDependencies += "org.scalajs" %%% "threejs" % "0.0.68-0.1.1" //THREE.js l
 Getting Started
 ---------------
 * to compile scala to javascript run:   sbt fastOptJS
-* open /target/scala-2.11/classes/index.html in scala-js-interfaces project folder
+* then package resources by: sbt package
+* open /target/scala-2.11/classes/index.html in scala-js-facades project folder
 * look at examples
 
-NOTE: if you change anything (even resources files) you have to do sbt fastOptJS to see the changesublish
+NOTE: if you change anything (even resources files) you have to do sbt fastOptJS to see the changes
