@@ -4,19 +4,18 @@ import bintray.Opts
 import bintray.Plugin._
 import bintray.Plugin.bintraySettings
 import bintray.Keys._
-import scala.scalajs.sbtplugin.ScalaJSPlugin._
-// Turn this project into a Scala.js project by importing these settings
-import scala.scalajs.sbtplugin.ScalaJSPlugin._
-import ScalaJSKeys._
+import org.scalajs.sbtplugin.ScalaJSPlugin
+import org.scalajs.sbtplugin.ScalaJSPlugin.autoImport._
+import org.scalajs.sbtplugin.cross.CrossProject
 
 object Build extends sbt.Build{
 
 
-  lazy val sameSettings:Seq[Setting[_]] = bintraySettings ++ scalaJSSettings ++Seq(
+  lazy val sameSettings:Seq[Setting[_]] = bintraySettings  ++Seq(
 
     organization := "org.scalajs",
 
-    scalaVersion := "2.11.2",
+    scalaVersion := "2.11.5",
 
     resolvers += Opts.resolver.repo("scalax", "scalax-releases"),
 
@@ -31,8 +30,9 @@ object Build extends sbt.Build{
 
     scalacOptions ++= Seq( "-feature", "-language:_" ),
 
-    libraryDependencies +=  "org.scala-lang.modules.scalajs" %%% "scalajs-dom" % "0.6.1",
-    libraryDependencies +=  "com.scalatags" %%% "scalatags" % "0.4.2"
+    libraryDependencies +=  "org.scala-js" %% "scalajs-dom_sjs0.6.0-RC1" % "0.7.0",
+
+    libraryDependencies +=  "com.lihaoyi" %% "scalatags_sjs0.6.0-RC1" % "0.4.3-RC1"
 
   ) ++publishSettings
 
@@ -70,35 +70,19 @@ object Build extends sbt.Build{
 
   val threeJsSettings = sameSettings ++ publishSettings ++ Seq(
     name := "threejs",
-    version := "0.0.68-0.1.2"
+    version := "0.0.68-0.1.3"
   )
 
 
-  lazy val threejs = Project( id= "threejs", base =  file("./threejs"), settings = threeJsSettings )
+  lazy val threejs = Project( id= "threejs", base =  file("./threejs"), settings = threeJsSettings ).enablePlugins(ScalaJSPlugin)
 
   val codeMirrorSettings = sameSettings ++ publishSettings ++ Seq(
     name := "codemirror",
-    version := "4.8-0.2"
+    version := "4.8-0.3"
   )
 
 
-  lazy val codeMirror = Project(id = "codemirror",base =  file("./codemirror"), settings = codeMirrorSettings )
-
-  val scrollerSettings = sameSettings ++ publishSettings ++ Seq(
-    name := "scroller",
-    version := "3.0.6-0.1"    
-  )
-
-  //malihu-custom-scrollbar-plugin
-  lazy val scroller = Project(id = "scroller",base =  file("./scroller"), settings = scrollerSettings )
-
-  val selectizeSettings:Seq[Setting[_]] = sameSettings ++   Seq(
-    name := "selectize",
-    version := "0.11.2-0.1"
-  )
-
-  //selectize.js
-  lazy val selectize = Project(id = "selectize",base =  file("./selectize"), settings = selectizeSettings )
+  lazy val codeMirror = Project(id = "codemirror",base =  file("./codemirror"), settings = codeMirrorSettings ).enablePlugins(ScalaJSPlugin)
 
   val facadesSettings:Seq[Setting[_]] = sameSettings ++   Seq(
     name := "facades",
@@ -113,7 +97,7 @@ object Build extends sbt.Build{
     id   = "facades",
     base = file("."),
     settings = facadesSettings
-    ).dependsOn(codeMirror,threejs, scroller, selectize).aggregate(codeMirror,threejs, scroller, selectize)
+    ).dependsOn(codeMirror,threejs).aggregate(codeMirror,threejs)
 
 
   override def rootProject = Some(facades)

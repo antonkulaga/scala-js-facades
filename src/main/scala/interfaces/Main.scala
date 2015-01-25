@@ -6,7 +6,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSExport
 
-@JSExport
+@JSExport(name="Main")
 object Main extends js.JSApp with Logged
 {
   var examples = CodeMirrorExample::ThreeJSExample::Nil

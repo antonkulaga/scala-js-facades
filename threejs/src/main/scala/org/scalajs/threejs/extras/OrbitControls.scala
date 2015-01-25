@@ -14,38 +14,38 @@ class OrbitControls( camera:Camera, element:HTMLElement) extends js.Object
 
   def this(camera:Camera) = this(camera, null)
 
-  def rotateLeft(angle:Double):Unit = ???
+  def rotateLeft(angle:Double):Unit = js.native
 
-  def rotateRight(angle:Double):Unit = ???
+  def rotateRight(angle:Double):Unit = js.native
 
-  def rotateUp(angle:Double):Unit = ???
+  def rotateUp(angle:Double):Unit = js.native
 
-  def rotateDown(angle:Double):Unit = ???
+  def rotateDown(angle:Double):Unit = js.native
 
-  def zoomIn( zoomScale:Double):Unit = ???
+  def zoomIn( zoomScale:Double):Unit = js.native
 
-  def zoomOut( zoomScale:Double):Unit = ???
+  def zoomOut( zoomScale:Double):Unit = js.native
 
-  def pan(distance:Vector3):Unit = ???
+  def pan(distance:Vector3):Unit = js.native
 
 
-  def update():Unit = ???
+  def update():Unit = js.native
 
-  def getAutoRotationAngle():Double = ???
+  def getAutoRotationAngle():Double = js.native
 
-  def  getZoomScale():Double = ???
+  def  getZoomScale():Double = js.native
 
-  def onMouseDown(event:dom.MouseEvent):Unit = ???
+  def onMouseDown(event:dom.MouseEvent):Unit = js.native
 
-  def onMouseUp(event:dom.MouseEvent):Unit = ???
+  def onMouseUp(event:dom.MouseEvent):Unit = js.native
 
-  def onMouseWheel(event:dom.MouseEvent):Unit = ???
+  def onMouseWheel(event:dom.MouseEvent):Unit = js.native
 
-  def onMouseMove(event:dom.MouseEvent):Unit = ???
+  def onMouseMove(event:dom.MouseEvent):Unit = js.native
 
-  def onKeyDown(event:dom.KeyboardEvent):Unit = ???
+  def onKeyDown(event:dom.KeyboardEvent):Unit = js.native
 
-  def onKeyUp(event:dom.KeyboardEvent):Unit = ???
+  def onKeyUp(event:dom.KeyboardEvent):Unit = js.native
 
 
 

@@ -12,14 +12,14 @@ In order to resolve a lib you should add a resolver
 resolvers += bintray.Opts.resolver.repo("denigma", "denigma-releases")
 ```
 
-At the moment following libs are available
+At the moment following libs are published for scalaJS-0.6-RC1
 
 ```scala
-libraryDependencies += "org.scalajs" %%% "codemirror" % "4.5-0.1" //CodeMirror editor
+libraryDependencies += "org.scalajs" %%% "codemirror" % "4.8-0.3" //CodeMirror editor
+
+libraryDependencies += "org.scalajs" %%% "threejs" % "0.0.68-0.1.3" //THREE.js lib
 ```
-```scala
-libraryDependencies += "org.scalajs" %%% "threejs" % "0.0.68-0.1.1" //THREE.js lib
-```
+
 
 Getting Started
 ---------------
