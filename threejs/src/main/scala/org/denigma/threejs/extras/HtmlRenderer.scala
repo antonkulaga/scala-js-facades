@@ -1,8 +1,8 @@
-package org.scalajs.threejs.extras
+package org.denigma.threejs.extras
 
-import org.scalajs.dom.HTMLElement
-import org.scalajs.threejs
-import org.scalajs.threejs._
+import org.denigma.threejs.{Object3D, Camera, Matrix3, Renderer}
+import org.scalajs.dom.raw.HTMLElement
+
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSName
@@ -31,9 +31,9 @@ class HtmlRenderer extends Renderer {
 
   def epsilon(value:Double):Double = js.native
 
-  def getObjectCSSMatrix(matrix:threejs.Matrix3):String= js.native
+  def getObjectCSSMatrix(matrix:Matrix3):String= js.native
 
-  def getCameraCSSMatrix(matrix:threejs.Matrix3):String= js.native
+  def getCameraCSSMatrix(matrix:Matrix3):String= js.native
 
   def renderObject(obj:HtmlObject,camera:Camera):Unit = js.native
 

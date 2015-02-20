@@ -6,7 +6,6 @@ import bintray.Plugin.bintraySettings
 import bintray.Keys._
 import org.scalajs.sbtplugin.ScalaJSPlugin
 import org.scalajs.sbtplugin.ScalaJSPlugin.autoImport._
-import org.scalajs.sbtplugin.cross.CrossProject
 
 object Build extends sbt.Build{
 
@@ -16,6 +15,8 @@ object Build extends sbt.Build{
     organization := "org.scalajs",
 
     scalaVersion := "2.11.5",
+
+    resolvers += Resolver.sonatypeRepo("releases"),
 
     resolvers += Opts.resolver.repo("scalax", "scalax-releases"),
 
@@ -30,16 +31,12 @@ object Build extends sbt.Build{
 
     scalacOptions ++= Seq( "-feature", "-language:_" ),
 
-    libraryDependencies +=  "org.scala-js" %% "scalajs-dom_sjs0.6.0-RC1" % "0.7.0",
-
-    libraryDependencies +=  "com.lihaoyi" %% "scalatags_sjs0.6.0-RC1" % "0.4.3-RC1"
+    libraryDependencies +=  "com.lihaoyi" %%% "scalatags" % "0.4.5"
 
   ) ++publishSettings
 
-  publishMavenStyle := false
 
-
-  val scalajsResolver: URLRepository = Resolver.url("scala-js-releases",
+  lazy val scalajsResolver: URLRepository = Resolver.url("scala-js-releases",
     url("http://dl.bintray.com/content/scala-js/scala-js-releases"))(
       Resolver.ivyStylePatterns)
 
@@ -63,30 +60,32 @@ object Build extends sbt.Build{
     publishArtifact := false
   )
 
-  val scalajsOutputDir = Def.settingKey[File]("directory for javascript files output by scalajs")
+  lazy val scalajsOutputDir = Def.settingKey[File]("directory for javascript files output by scalajs")
 
-  protected val bintrayPublishIvyStyle = settingKey[Boolean]("=== !publishMavenStyle") //workaround for sbt-bintray bug
+  protected lazy val bintrayPublishIvyStyle = settingKey[Boolean]("=== !publishMavenStyle") //workaround for sbt-bintray bug
 
 
   val threeJsSettings = sameSettings ++ publishSettings ++ Seq(
     name := "threejs",
-    version := "0.0.68-0.1.3"
+    version := "0.0.68-0.1.4"
   )
 
 
-  lazy val threejs = Project( id= "threejs", base =  file("./threejs"), settings = threeJsSettings ).enablePlugins(ScalaJSPlugin)
+  lazy val threejs = Project( id= "threejs", base =  file("./threejs"), settings = threeJsSettings )
+    .enablePlugins(ScalaJSPlugin)
 
   val codeMirrorSettings = sameSettings ++ publishSettings ++ Seq(
     name := "codemirror",
-    version := "4.8-0.3"
+    version := "4.8-0.4"
   )
 
 
-  lazy val codeMirror = Project(id = "codemirror",base =  file("./codemirror"), settings = codeMirrorSettings ).enablePlugins(ScalaJSPlugin)
+  lazy val codeMirror = Project(id = "codemirror",base =  file("./codemirror"), settings = codeMirrorSettings )
+    .enablePlugins(ScalaJSPlugin)
 
   val facadesSettings:Seq[Setting[_]] = sameSettings ++   Seq(
     name := "facades",
-    version := "0.12"
+    version := "0.13"
   )
 
 
@@ -97,11 +96,9 @@ object Build extends sbt.Build{
     id   = "facades",
     base = file("."),
     settings = facadesSettings
-    ).dependsOn(codeMirror,threejs).aggregate(codeMirror,threejs)
+    ).enablePlugins(ScalaJSPlugin).dependsOn(codeMirror,threejs).aggregate(codeMirror,threejs)
 
 
   override def rootProject = Some(facades)
-
-  resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
 
 }

@@ -1,7 +1,7 @@
-package org.scalajs.threejs.extensions.controls
+package org.denigma.threejs.extensions.controls
 
+import org.denigma.threejs.Vector3
 import org.scalajs.dom.MouseEvent
-import org.scalajs.threejs.Vector3
 
 trait CameraControls {
 

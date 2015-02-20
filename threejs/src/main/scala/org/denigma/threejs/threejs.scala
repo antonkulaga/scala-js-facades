@@ -1,6 +1,9 @@
-package org.scalajs.threejs
+package org.denigma.threejs
+
+import org.scalajs._
 
 import org.scalajs.dom._
+import org.scalajs.dom.raw.{HTMLCanvasElement, HTMLElement, HTMLImageElement}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation._

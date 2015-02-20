@@ -1,9 +1,10 @@
-package org.scalajs.threejs.extensions.controls
+package org.denigma.threejs.extensions.controls
 
+import org.denigma.threejs.extensions.animations.{Animation, Scheduler}
+import org.denigma.threejs.{Vector3, Scene, Camera}
 import org.scalajs.dom
-import org.scalajs.dom.{MouseEvent, HTMLElement}
-import org.scalajs.threejs.extensions.animations.{Animation, Scheduler}
-import org.scalajs.threejs.{Scene, Vector3, Camera}
+import org.scalajs.dom.raw.HTMLElement
+import org.scalajs.dom.{MouseEvent}
 import scala.concurrent.duration
 import scala.concurrent.duration.Duration
 import scala.concurrent.duration.MILLISECONDS

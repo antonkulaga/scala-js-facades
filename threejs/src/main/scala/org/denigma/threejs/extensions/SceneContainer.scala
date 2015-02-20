@@ -1,8 +1,8 @@
-package org.scalajs.threejs.extensions
+package org.denigma.threejs.extensions
 
+import org.denigma.threejs.{Scene, PerspectiveCamera, Renderer}
 import org.scalajs.dom
-import org.scalajs.dom.HTMLElement
-import org.scalajs.threejs._
+import org.scalajs.dom.raw.HTMLElement
 
 trait SceneContainer{
 

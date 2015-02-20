@@ -1,8 +1,8 @@
-package org.scalajs.threejs.extras
+package org.denigma.threejs.extras
 
+import org.denigma.threejs.{Vector3, Camera}
 import org.scalajs.dom
-import org.scalajs.dom.HTMLElement
-import org.scalajs.threejs._
+import org.scalajs.dom.raw.HTMLElement
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSName

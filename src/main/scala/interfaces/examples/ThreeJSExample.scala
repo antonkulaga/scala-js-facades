@@ -1,11 +1,12 @@
 package interfaces.examples
 
+import org.denigma.threejs._
+import org.denigma.threejs.extensions.Container3D
+import org.denigma.threejs.extensions.controls.{CameraControls, JumpCameraControls}
+import org.denigma.threejs.extras.HtmlSprite
 import org.scalajs.dom
-import org.scalajs.dom.{MouseEvent, HTMLElement}
-import org.scalajs.threejs._
-import org.scalajs.threejs.extensions.controls.{JumpCameraControls, IntersectionControls, HoverControls, CameraControls}
-import org.scalajs.threejs.extensions.Container3D
-import org.scalajs.threejs.extras.HtmlSprite
+import org.scalajs.dom.MouseEvent
+import org.scalajs.dom.raw.HTMLElement
 
 import scala.scalajs.js
 import scala.scalajs.js.Array

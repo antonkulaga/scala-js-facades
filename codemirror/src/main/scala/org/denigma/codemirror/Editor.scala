@@ -1,7 +1,7 @@
-package org.scalajs.codemirror
+package org.denigma.codemirror
 
-import org.scalajs.dom.{Event, HTMLElement, HTMLTextAreaElement}
-
+import org.scalajs._
+import org.scalajs.dom.raw.{HTMLTextAreaElement, Event, HTMLElement}
 import scala.scalajs.js
 import scala.scalajs.js._
 import scala.scalajs.js.annotation.JSName

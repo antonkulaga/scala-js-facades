@@ -1,9 +1,10 @@
-package org.scalajs.threejs.extensions
+package org.denigma.threejs.extensions
 
+import org.denigma.threejs.extensions.controls.{HoverControls, CameraControls}
+import org.denigma.threejs.extras.HtmlRenderer
+import org.denigma.threejs.{Scene, WebGLRendererParameters, WebGLRenderer}
 import org.scalajs.dom.{MouseEvent, Event}
-import org.scalajs.threejs._
-import org.scalajs.threejs.extensions.controls.{HoverControls, CameraControls}
-import org.scalajs.threejs.extras.{OrbitControls, HtmlRenderer}
+
 
 import scala.scalajs.js.{Array, Dynamic}
 

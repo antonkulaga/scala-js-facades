@@ -1,8 +1,8 @@
 package interfaces.examples
 
-import org.scalajs.codemirror.{EditorConfiguration, CodeMirror}
+import org.denigma.codemirror.{CodeMirror, EditorConfiguration}
 import org.scalajs.dom
-import org.scalajs.dom.HTMLTextAreaElement
+import org.scalajs.dom.raw.HTMLTextAreaElement
 
 import scala.scalajs.js
 

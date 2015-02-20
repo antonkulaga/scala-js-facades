@@ -1,10 +1,9 @@
-package org.scalajs.threejs.extensions.animations
+package org.denigma.threejs.extensions.animations
 
 import java.util.Date
 
 import org.scalajs.dom
-import org.scalajs.dom.HTMLElement
-import org.scalajs.threejs.extensions.animations.Animation.{Started, AniState}
+import Animation.{Started, AniState}
 import scala.concurrent.duration.Duration
 import scala.scalajs.js
 

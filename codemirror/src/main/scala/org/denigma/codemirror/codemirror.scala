@@ -1,7 +1,6 @@
-package org.scalajs
+package org.denigma
 
 import scala.scalajs.js
-
 
 
 package object codemirror extends js.GlobalScope {

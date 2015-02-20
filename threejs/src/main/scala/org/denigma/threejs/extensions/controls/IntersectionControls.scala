@@ -1,8 +1,8 @@
-package org.scalajs.threejs.extensions.controls
+package org.denigma.threejs.extensions.controls
 
+import org.denigma.threejs._
 import org.scalajs.dom
-import org.scalajs.dom.{Event, MouseEvent, HTMLElement}
-import org.scalajs.threejs._
+
 
 trait IntersectionControls
 {

@@ -1,9 +1,9 @@
-package org.scalajs.threejs.extensions.controls
+package org.denigma.threejs.extensions.controls
 
+import org.denigma.threejs.{Vector2, Vector3, Camera}
 import org.scalajs.dom
-import org.scalajs.dom.{Event, HTMLElement, MouseEvent}
-import org.scalajs.threejs.extensions.controls.HoverControls.HoverState
-import org.scalajs.threejs.{Camera, Vector2, Vector3}
+import HoverControls.HoverState
+import org.scalajs.dom.raw.{Event, MouseEvent, HTMLElement}
 
 import scala.scalajs.js
 
