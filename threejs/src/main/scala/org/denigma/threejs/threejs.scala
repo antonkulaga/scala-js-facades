@@ -1304,6 +1304,7 @@ trait HSL extends js.Object {
 class Color  extends js.Object {
   def this(color: Color = js.native) = this()
   def this(r: Double, g: Double, b: Double) = this()
+  def this(hex: Double) = this()
   var r: Double = js.native
   var g: Double = js.native
   var b: Double = js.native
