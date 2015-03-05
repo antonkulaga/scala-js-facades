@@ -239,14 +239,14 @@ class HoverControls(camera:Camera, element:HTMLElement, val center:Vector3 = new
     state = HoverControls.Calm
   }
 
-  def onMouseWheel(event:dom.MouseEvent) = if(enabled && userZoom)
-  {
+  def onMouseWheel(event:dom.MouseEvent) = if(enabled && userZoom) {
     var delta = 0
     val wheel = event.asInstanceOf[js.Dynamic]
-    if ( wheel.wheelDelta != 0 ) { // WebKit / Opera / Explorer 9
+    if (!js.isUndefined(wheel.wheelDelta)){ // WebKit / Opera / Explorer 9
       delta = wheel.wheelDelta.asInstanceOf[Int]
-    } else if ( wheel.detail !=0) { // Firefox
-      delta = - event.detail:Int
+    }
+    else if (!js.isUndefined(wheel.detail)) { // Firefox
+      delta = - event.detail
     }
     if ( delta > 0 )    zoomOut() else   zoomIn()
 
