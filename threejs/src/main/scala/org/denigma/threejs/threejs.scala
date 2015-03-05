@@ -890,8 +890,10 @@ trait LineBasicMaterialParameters extends MaterialParameters {
   var fog: Boolean = js.native
 }
 
+trait LineMaterial extends Material
+
 @JSName("THREE.LineBasicMaterial")
-class LineBasicMaterial  extends Material {
+class LineBasicMaterial extends LineMaterial {
   def this(parameters: LineBasicMaterialParameters = js.native) = this()
   var color: Color = js.native
   var linewidth: Double = js.native
@@ -913,7 +915,7 @@ trait LineDashedMaterialParameters extends MaterialParameters {
 }
 
 @JSName("THREE.LineDashedMaterial")
-class LineDashedMaterial  extends Material {
+class LineDashedMaterial extends LineMaterial {
   def this(parameters: LineDashedMaterialParameters = js.native) = this()
   var color: Color = js.native
   var linewidth: Double = js.native
@@ -1966,10 +1968,10 @@ class Bone  extends Object3D {
 }
 
 @JSName("THREE.Line")
-class Line  extends Object3D {
-  def this(geometry: Geometry = js.native, material: LineDashedMaterial = js.native, `type`: Double = js.native) = this()
+class Line extends Object3D {
+  def this(geometry: Geometry = js.native, material: LineMaterial = js.native, `type`: Double = js.native) = this()
   var geometry: Geometry = js.native
-  var material: LineBasicMaterial = js.native
+  var material: LineMaterial = js.native
   var `type`: LineType = js.native
   override def raycast(raycaster: Raycaster, intersects: js.Any): Unit = js.native
   def clone(`object`: Line): Line = js.native
