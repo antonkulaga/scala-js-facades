@@ -37,7 +37,7 @@ class ExampleScene(val container:HTMLElement, val width:Double, val height:Doubl
   val colorMap= Map("green"->0xA1CF64,"red"->0xD95C5C,"blue" -> 0x6ECFF5,"orange" ->0xF05940,"purple"->0x564F8A,"teal"->0x00B5AD)
 
   def materialParams(name:String) = js.Dynamic.literal(
-    color = new Color().setHex(colorMap(name))
+    color = new Color(colorMap(name))
    // wireframe = true
   ).asInstanceOf[MeshLambertMaterialParameters]
 
