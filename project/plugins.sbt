@@ -6,6 +6,6 @@ resolvers += "spray repo" at "http://repo.spray.io"
 
 resolvers  += "Online Play Repository" at  "http://repo.typesafe.com/typesafe/simple/maven-releases/"
 
-addSbtPlugin("me.lessis" % "bintray-sbt" % "0.1.2")
+addSbtPlugin("me.lessis" % "bintray-sbt" % "0.3.0")
 
-addSbtPlugin("org.scala-js" % "sbt-scalajs" % "0.6.0")
+addSbtPlugin("org.scala-js" % "sbt-scalajs" % "0.6.1")

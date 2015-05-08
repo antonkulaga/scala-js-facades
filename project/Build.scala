@@ -1,50 +1,43 @@
 import sbt.Keys._
 import sbt._
-import bintray.Opts
-import bintray.Plugin._
-import bintray.Plugin.bintraySettings
-import bintray.Keys._
+import bintray._
+import BintrayPlugin.autoImport._
 import org.scalajs.sbtplugin.ScalaJSPlugin
 import org.scalajs.sbtplugin.ScalaJSPlugin.autoImport._
+
+object Versions {
+  val scala = "2.11.6"
+  val scalaTags = "0.5.1"
+  val codeMirror = "5.2"
+  val codeMirrorFacade = "5.2-0.4"
+  val threeJs = "0.0.68" //"r66"
+  val threeJsFacade =  "0.0.68-0.1.4"
+}
 
 object Build extends sbt.Build{
 
 
-  lazy val sameSettings:Seq[Setting[_]] = bintraySettings  ++Seq(
+  lazy val sameSettings:Seq[Setting[_]] = Seq(
 
-    organization := "org.scalajs",
+    organization := "org.denigma",
 
-    scalaVersion := "2.11.5",
+    scalaVersion := Versions.scala,
 
     resolvers += Resolver.sonatypeRepo("releases"),
 
-    resolvers += Opts.resolver.repo("scalax", "scalax-releases"),
-
-    resolvers += Opts.resolver.repo("alexander-myltsev", "maven"),
-
-    // The Typesafe repository
-    resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/",
-
-    resolvers +=  Resolver.url("scala-js-releases",
-      url("http://dl.bintray.com/content/scala-js/scala-js-releases"))(
-        Resolver.ivyStylePatterns),
+    resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases"),
 
     scalacOptions ++= Seq( "-feature", "-language:_" ),
 
-    libraryDependencies +=  "com.lihaoyi" %%% "scalatags" % "0.4.5"
+    libraryDependencies +=  "com.lihaoyi" %%% "scalatags" % Versions.scalaTags
 
   ) ++publishSettings
 
 
-  lazy val scalajsResolver: URLRepository = Resolver.url("scala-js-releases",
-    url("http://dl.bintray.com/content/scala-js/scala-js-releases"))(
-      Resolver.ivyStylePatterns)
-
-
   lazy val publishSettings = Seq(
-    repository in bintray := "denigma-releases",
+    bintrayRepository := "denigma-releases",
 
-    bintrayOrganization in bintray := Some("denigma"),
+    bintrayOrganization := Some("denigma"),
 
     licenses += ("MPL-2.0", url("http://opensource.org/licenses/MPL-2.0")),
 
@@ -67,25 +60,25 @@ object Build extends sbt.Build{
 
   val threeJsSettings = sameSettings ++ publishSettings ++ Seq(
     name := "threejs",
-    version := "0.0.68-0.1.4"
+    version := Versions.threeJsFacade
   )
 
 
   lazy val threejs = Project( id= "threejs", base =  file("./threejs"), settings = threeJsSettings )
-    .enablePlugins(ScalaJSPlugin)
+    .enablePlugins(ScalaJSPlugin,BintrayPlugin)
 
   val codeMirrorSettings = sameSettings ++ publishSettings ++ Seq(
     name := "codemirror",
-    version := "4.8-0.4"
+    version := Versions.codeMirrorFacade
   )
 
 
   lazy val codeMirror = Project(id = "codemirror",base =  file("./codemirror"), settings = codeMirrorSettings )
-    .enablePlugins(ScalaJSPlugin)
+    .enablePlugins(ScalaJSPlugin,BintrayPlugin)
 
   val facadesSettings:Seq[Setting[_]] = sameSettings ++   Seq(
     name := "facades",
-    version := "0.13"
+    version := "0.14"
   )
 
 
