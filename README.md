@@ -9,7 +9,7 @@ USAGE
 
 In order to resolve a lib you should add a resolver
 ```scala
-resolvers += bintray.Opts.resolver.repo("denigma", "denigma-releases")
+resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases")
 ```
 
 At the moment following libs are published for scalaJS-0.6
@@ -28,4 +28,4 @@ Getting Started
 * open /target/scala-2.11/classes/index.html in scala-js-facades project folder
 * look at examples
 
-NOTE: if you change anything (even resources files) you have to do sbt fastOptJS to see the changes
+NOTE: if you change anything (even resources files) you have to do sbt fastOptJS to see the change

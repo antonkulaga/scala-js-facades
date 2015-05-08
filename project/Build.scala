@@ -10,8 +10,8 @@ object Versions {
   val scalaTags = "0.5.1"
   val codeMirror = "5.2"
   val codeMirrorFacade = "5.2-0.4"
-  val threeJs = "0.0.68" //"r66"
-  val threeJsFacade =  "0.0.68-0.1.4"
+  val threeJs = "r71"
+  val threeJsFacade =  "0.0.71-0.1.4"
 }
 
 object Build extends sbt.Build{
