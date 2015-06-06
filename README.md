@@ -1,3 +1,9 @@
+THIS REPO IS DEPRECATED!
+========================
+Go to https://github.com/antonkulaga/threejs-facade for threejs facade
+and to https://github.com/antonkulaga/codemirror-facade for codemirror facade
+instead!
+
 scala-js-facades
 ===================
 
